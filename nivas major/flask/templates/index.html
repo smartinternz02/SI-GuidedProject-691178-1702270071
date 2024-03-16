@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sea Animal Classification</title>
+</head>
+<body>
+    <h1>Sea Animal Classification</h1>
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".jpg, .jpeg, .png"><br><br>
+        <button type="submit">Predict</button>
+    </form>
+    {% if image_path %}
+        <img src="{{ image_path }}" alt="Uploaded Image" style="max-width: 300px;">
+    {% endif %}
+    <br>
+    {% if prediction %}
+        <h2>Prediction: {{ prediction }}</h2>
+    {% endif %}
+</body>
+</html>
